@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
-export async function connect () {
+
+// Connect to MongoDB
+export async function connect() {
     try {
-        mongoose.connect(process.env.MONGO_URI!);
+        // Connect to MongoDB using Mongoose
+        await mongoose.connect(process.env.MONGO_URI!);
         const connection = mongoose.connection;
 
+        // Listen for connection events
         connection.on('connected', () => {
             console.log('MongoDB Connected successfully!')
         })
@@ -13,9 +17,8 @@ export async function connect () {
             console.log('MongoDB connection error. Please make sure MobgiDB is running.' + err);
             process.exit();
         })
-    
-    } catch (error) {
-        console.log('Something Went Wrong!');
-        console.log(error);
-    }
+        } catch (error) {
+            console.log('Something Went Wrong!');
+            console.log(error);
+        }
 }

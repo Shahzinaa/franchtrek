@@ -20,9 +20,9 @@ export default function LoginPage () {
     return (
         <div>
       <div className='py-8 flex flex-col gap-20'>
-        <div className="logo w-40">
+        <div className="logo flex items-center justify-center md:justify-start">
             <Link href="/">
-                < Image src={'/logo.png'} alt='logo' width={300} height={100}/>
+                < Image src={'/logo.png'} alt='logo' width={150} height={100}/>
             </Link>
         </div>
 
